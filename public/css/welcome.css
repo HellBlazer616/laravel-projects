@@ -1,0 +1,39 @@
+.hero {
+  background: #6c63ff;
+  height: 94.5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero img {
+  flex-basis: 100%;
+}
+
+.hero .tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  text-align: center;
+}
+
+.hero .tag h1 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 3rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+  .hero .tag h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.hero .tag p {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
