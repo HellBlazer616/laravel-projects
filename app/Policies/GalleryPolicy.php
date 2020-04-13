@@ -42,7 +42,7 @@ class GalleryPolicy
      */
     public function create(User $user)
     {
-        return $user->id === \auth()->user()->id;
+        //
     }
 
     /**

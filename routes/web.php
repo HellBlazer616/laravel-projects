@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::post('/picture/{gallery}', 'ImageController@store');
 
 Route::get('/gallery', 'GalleryController@index');
-Route::post('/gallery', 'GalleryController@store');
+Route::post('/gallery', 'GalleryController@store')->middleware('auth');;
 Route::get('/gallery/{gallery}', 'GalleryController@show');
 Route::delete('/gallery/{gallery}', 'GalleryController@destroy');
 

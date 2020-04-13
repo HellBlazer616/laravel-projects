@@ -52,7 +52,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$image->title}}</h5>
             </div>
-            @can('delete-image', $image)
+            @can('delete', $image)
             <div class="flex delete">
                 <form action="/gallery/" method="post" class="form__delete">
                     @method('delete')

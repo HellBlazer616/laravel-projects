@@ -42,7 +42,7 @@ class ImagePolicy
      */
     public function create(User $user)
     {
-        return $user->id === \auth()->user()->id;
+        //
     }
 
     /**
@@ -54,9 +54,7 @@ class ImagePolicy
      */
     public function update(User $user, Image $image)
     {
-        return $image->user->id === $user->id
-        ? Response::allow()
-        : Response::deny('You did not upload this image');
+        return $image->gallery->user_id === $user->id;
     }
 
     /**
@@ -68,10 +66,7 @@ class ImagePolicy
      */
     public function delete(User $user, Image $image)
     {
-        \ddd($image);
-        return $image->user->id === $user->id
-        ? Response::allow()
-        : Response::deny('You did not upload this image');
+        return $image->gallery->user_id === $user->id;
     }
 
     /**
