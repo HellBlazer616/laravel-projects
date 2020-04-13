@@ -30,7 +30,7 @@
     </div>
 
     @endif
-    <div class="row m-1">
+    <div class="row m-1 justify-content-between ">
         @auth
         <form action="/gallery" method="post" enctype="multipart/form-data"
             class="card col-lg-3 col-md-5 col-sm-10 col-11 m-1 create-gallery">

@@ -66,9 +66,8 @@ class GalleryController extends Controller
     {
         if (Gate::allows('visit-gallery', [$gallery, \auth()])) {
             return view('galleryShow')->with('galleries', $gallery);
-        } else {
-            return abort('403');
         }
+        return abort('403');
     }
 
     /**
