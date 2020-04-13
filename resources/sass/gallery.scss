@@ -7,7 +7,40 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+input#cover {
+    display: inline-block;
+    width: 100%;
+    padding: 120px 0 0 0;
+    height: 100px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png")
+        center center no-repeat #e4e4e4;
+    border-radius: 20px;
+    background-size: 60px 60px;
+}
 .bg-light {
     background: #fff !important;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.create-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__delete {
+    margin-bottom: 1rem;
+    display: inline-flex;
+
+    button {
+        margin-top: 1rem;
+    }
+}
+
+img {
+    object-fit: scale-down;
 }

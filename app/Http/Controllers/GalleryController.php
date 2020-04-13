@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -14,7 +15,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('gallery');
+        $galleries = Gallery::all();
+        return view('gallery')->with('galleries', $galleries);
     }
 
     /**
@@ -24,7 +26,6 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +36,23 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'cover' => 'required|mimes:jpeg,jpg,png|max:2000',
+        ]);
+        $galleryCoverPath = $request->file('cover')->store('galleryCover');
+
+        Gallery::create([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'cover' => $galleryCoverPath,
+            'user_id' => auth()->id(),
+        ]);
+
+        $galleries = Gallery::all();
+
+        return \redirect('/gallery')->with('status', 'A Gallery Has been created')->with('galleries', $galleries);
     }
 
     /**
@@ -80,6 +97,8 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        $gallery->delete();
+
+        return \redirect('/gallery')->with('statusDelete', $gallery->title . ' has been deleted');
     }
 }
