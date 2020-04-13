@@ -519,6 +519,17 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 
 /***/ }),
 
+/***/ "./resources/sass/gallery.show.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/gallery.show.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9nYWxsZXJ5LnNob3cuc2Nzcz80YmQ0Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Nhc3MvZ2FsbGVyeS5zaG93LnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/gallery.show.scss\n");
+
+/***/ }),
+
 /***/ "./resources/sass/welcome.scss":
 /*!*************************************!*\
   !*** ./resources/sass/welcome.scss ***!
@@ -526,20 +537,21 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy93ZWxjb21lLnNjc3M/MzZhZCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zYXNzL3dlbGNvbWUuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/welcome.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy93ZWxjb21lLnNjc3M/ZTFiNiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zYXNzL3dlbGNvbWUuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/welcome.scss\n");
 
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/gallery.scss ./resources/sass/welcome.scss ***!
-  \*************************************************************************************************************************/
+/*!************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/gallery.scss ./resources/sass/gallery.show.scss ./resources/sass/welcome.scss ***!
+  \************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\laragon\www\laravel_playground\micro_projects\photoGallery\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! D:\laragon\www\laravel_playground\micro_projects\photoGallery\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! D:\laragon\www\laravel_playground\micro_projects\photoGallery\resources\sass\gallery.scss */"./resources/sass/gallery.scss");
+__webpack_require__(/*! D:\laragon\www\laravel_playground\micro_projects\photoGallery\resources\sass\gallery.show.scss */"./resources/sass/gallery.show.scss");
 module.exports = __webpack_require__(/*! D:\laragon\www\laravel_playground\micro_projects\photoGallery\resources\sass\welcome.scss */"./resources/sass/welcome.scss");
 
 

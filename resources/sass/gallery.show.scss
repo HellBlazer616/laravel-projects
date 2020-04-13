@@ -12,6 +12,7 @@ input#cover {
     border-radius: 20px;
     background-size: 60px 60px;
 }
+
 .card {
     img {
         flex: 2 2 auto;
@@ -33,15 +34,6 @@ input#cover {
     padding: 1rem;
 }
 
-.form__delete {
-    margin-bottom: 1rem;
-    display: inline-flex;
-
-    button {
-        margin-top: 1rem;
-    }
-}
-
-img {
-    object-fit: scale-down;
+.delete {
+    margin: 1rem;
 }

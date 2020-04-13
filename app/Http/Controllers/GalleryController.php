@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
 
 class GalleryController extends Controller
 {
@@ -15,7 +16,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::all();
+        $galleries = Gallery::all()->where('user_id', '=', \auth()->id());
         return view('gallery')->with('galleries', $galleries);
     }
 
@@ -63,7 +64,11 @@ class GalleryController extends Controller
      */
     public function show(Gallery $gallery)
     {
-        //
+        if (Gate::allows('visit-gallery', [$gallery, \auth()])) {
+            return view('galleryShow')->with('galleries', $gallery);
+        } else {
+            return abort('403');
+        }
     }
 
     /**

@@ -16,7 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gallery.show.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -43,28 +43,23 @@
             @enderror
         </form>
         @endauth
-        @foreach ($galleries as $gallery)
-        <div class="card col-lg-3 col-md-5 col-sm-10 col-11 m-1">
-            <img src={{ asset('storage') .'/'. $gallery['cover'] }} class="card-img-top"
-                alt="gallery image">
-            <div class="card-body flex ">
-                <h5 class="card-title">{{$gallery['title']}}</h5>
-                <p class="card-text">{{$gallery['description']}}</p>
+
+        <div class="card" class="col-lg-3 col-md-5 col-sm-10 col-11 m-1">
+            <img src="https://picsum.photos/seed/picsum/500/500" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
             </div>
             @auth
-            <div class="flex">
-                <a href={{'gallery/' . $gallery['id']}} class="btn btn-primary">Visit Gallery</a>
-                <form action="/gallery/{{$gallery->id}}" method="post" class="form__delete">
+            <div class="flex delete">
+                <form action="/gallery/" method="post" class="form__delete">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="btn btn-danger">Delete Gallery</button>
+                    <button type="submit" class="btn btn-danger">Delete Image</button>
                 </form>
             </div>
             @endauth
-
         </div>
-        @endforeach
-
+    </div>
 </body>
 
 </html>

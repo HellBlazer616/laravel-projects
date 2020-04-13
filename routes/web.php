@@ -22,4 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/gallery', 'GalleryController@index');
 Route::post('/gallery', 'GalleryController@store');
+Route::get('/gallery/{gallery}', 'GalleryController@show');
 Route::delete('/gallery/{gallery}', 'GalleryController@destroy');

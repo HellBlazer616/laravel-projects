@@ -29,17 +29,7 @@ input#cover {
   padding: 1rem;
 }
 
-.form__delete {
-  margin-bottom: 1rem;
-  display: inline-flex;
-}
-
-.form__delete button {
-  margin-top: 1rem;
-}
-
-img {
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
+.delete {
+  margin: 1rem;
 }
 

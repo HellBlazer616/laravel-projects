@@ -1,3 +1,10 @@
+<style>
+    .bg-light {
+        background: #fff !important;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light  ">
 
     <a class="navbar-brand" href="/home">Home</a>
