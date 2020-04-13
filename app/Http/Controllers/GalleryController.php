@@ -16,7 +16,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::all()->where('user_id', '=', \auth()->id());
+        $galleries = Gallery::all();
         return view('gallery')->with('galleries', $galleries);
     }
 
@@ -64,10 +64,9 @@ class GalleryController extends Controller
      */
     public function show(Gallery $gallery)
     {
-        if (Gate::allows('visit-gallery', [$gallery, \auth()])) {
-            return view('galleryShow')->with('galleries', $gallery);
-        }
-        return abort('403');
+        $images = $gallery->images;
+
+        return view('galleryShow')->with('gallery', $gallery)->with('images', $images);
     }
 
     /**

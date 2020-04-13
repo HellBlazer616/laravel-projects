@@ -28,23 +28,31 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-
     @endif
+
+
+
     <div class="row m-1 justify-content-between">
         @auth
-        <form action={{ url('/picture') }} method="post" enctype="multipart/form-data"
+        @if ($gallery->user_id === auth()->user()->id)
+        <form action={{ url('/picture') . '/' . $gallery->id }} method="post"
+            enctype="multipart/form-data"
             class="card col-lg-3 col-md-5 col-sm-10 col-11 m-1 create-gallery">
             @csrf
             <x-form-upload-images />
         </form>
+        @endif
         @endauth
 
-        <div class="card" class="col-lg-3 col-md-5 col-sm-10 col-11 m-1">
-            <img src="https://picsum.photos/seed/picsum/500/500" class="card-img-top" alt="...">
+        @if (isset($images))
+        @foreach ($images as $image)
+        <div class="card col-lg-3 col-md-5 col-sm-10 col-11 m-1">
+            <img src={{ asset('storage') .'/'. $image['path'] }} class="card-img-top" alt="..."
+                loading='lazy'>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">{{$image->title}}</h5>
             </div>
-            @auth
+            @can('delete-image', $image)
             <div class="flex delete">
                 <form action="/gallery/" method="post" class="form__delete">
                     @method('delete')
@@ -52,8 +60,12 @@
                     <button type="submit" class="btn btn-danger">Delete Image</button>
                 </form>
             </div>
-            @endauth
+            @endcan
+
+
         </div>
+        @endforeach
+        @endif
     </div>
 </body>
 

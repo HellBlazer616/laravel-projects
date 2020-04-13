@@ -31,6 +31,7 @@
 
     @endif
     <div class="row m-1 justify-content-between ">
+
         @auth
         <form action="/gallery" method="post" enctype="multipart/form-data"
             class="card col-lg-3 col-md-5 col-sm-10 col-11 m-1 create-gallery">
@@ -43,6 +44,7 @@
             @enderror
         </form>
         @endauth
+
         @foreach ($galleries as $gallery)
         <div class="card col-lg-3 col-md-5 col-sm-10 col-11 m-1">
             <img src={{ asset('storage') .'/'. $gallery['cover'] }} class="card-img-top"
@@ -51,16 +53,17 @@
                 <h5 class="card-title">{{$gallery['title']}}</h5>
                 <p class="card-text">{{$gallery['description']}}</p>
             </div>
-            @auth
+
             <div class="flex">
                 <a href={{'gallery/' . $gallery['id']}} class="btn btn-primary">Visit Gallery</a>
+                @can('delete', $gallery)
                 <form action="/gallery/{{$gallery->id}}" method="post" class="form__delete">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger">Delete Gallery</button>
                 </form>
+                @endcan
             </div>
-            @endauth
 
         </div>
         @endforeach

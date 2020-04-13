@@ -1,5 +1,4 @@
 <div>
-    </form>
     <div class="form-group">
         <input type="file" id="images" class="form-control @error('images') is-invalid @enderror"
             placeholder="Upload Images" name="images[]" aria-label="Upload Images" multiple>

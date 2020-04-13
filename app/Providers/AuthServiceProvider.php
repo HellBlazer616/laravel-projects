@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Gallery;
+use App\Image;
+use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,7 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Gallery' => 'App\Policies\GalleryPolicy',
+        'App\Image' => 'App\Policies\ImagePolicy',
     ];
 
     /**
@@ -25,8 +29,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('visit-gallery', function ($user, $gallery) {
-            return $user->id === $gallery->user_id;
+        Gate::define('delete-image', function (User $user, Image $image) {
+            return $image->gallery->user_id === $user->id;
         });
     }
 }
