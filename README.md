@@ -1,4 +1,6 @@
-# GalleryApp
+# Micro and Macro Projects
+
+## GalleryApp
 
 - ****
 - **Users Can register and login using password**
