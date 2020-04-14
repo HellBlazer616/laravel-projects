@@ -23,11 +23,22 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::post('/picture/{gallery}', 'ImageController@store');
+Route::delete('/picture/{image}', 'ImageController@destroy');
 
 Route::get('/gallery', 'GalleryController@index');
-Route::post('/gallery', 'GalleryController@store')->middleware('auth');;
+
+Route::get('/gallery/{gallery}/edit', 'GalleryController@edit')
+->middleware('can:update,gallery');
+
+Route::put('/gallery/{gallery}/edit', 'GalleryController@update')
+->middleware('can:update,gallery');
+
+Route::post('/gallery', 'GalleryController@store')->middleware('auth');
+
 Route::get('/gallery/{gallery}', 'GalleryController@show');
-Route::delete('/gallery/{gallery}', 'GalleryController@destroy');
+
+Route::delete('/gallery/{gallery}', 'GalleryController@destroy')
+->middleware('can:delete,gallery');
 
 Route::get('asd', function (User $user) {
     $user = App\User::find(1);

@@ -1,8 +1,8 @@
 <div>
     <div class="form-group">
-        <input type="file" id="images" class="form-control @error('images') is-invalid @enderror"
+        <input type="file" id="images" class="form-control @error('images[]') is-invalid @enderror"
             placeholder="Upload Images" name="images[]" aria-label="Upload Images" multiple>
-        @error('cover')
+        @error('images')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>

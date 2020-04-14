@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Gallery;
 use App\Image;
 use App\User;
 use Illuminate\Auth\Access\Response;
@@ -42,7 +43,9 @@ class ImagePolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
+        ddd($user->id);
+        return $gallery->user_id === $user->id;
     }
 
     /**

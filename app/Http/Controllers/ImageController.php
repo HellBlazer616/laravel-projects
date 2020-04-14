@@ -36,21 +36,19 @@ class ImageController extends Controller
      */
     public function store(Request $request, Gallery $gallery)
     {
-        $validatedData = $request->validate([
+        $this->authorize('create', $gallery);
+
+        $request->validate([
             'images.*' => 'mimes:jpeg,jpg,png',
         ]);
-
-        $imagesPath = [];
-        $data = [];
 
         if ($request->hasFile('images')) {
             foreach ($request->images as $image) {
                 $title = $gallery->title . "'s Images";
 
                 $path = $image->store('galleryImages');
-                $imagesPath[] = $path;
 
-                $image = Image::create([
+                Image::create([
                     'title' => $title,
                     'gallery_id' => $gallery->id,
                     'path' => $path,
@@ -58,9 +56,7 @@ class ImageController extends Controller
             }
         }
 
-        $images = Image::all()->where('gallery_id', '=', $gallery->id);
-
-        return \redirect()->back()->with('status', 'A Gallery Has been created')->with('images', $images)->with('gallery', $gallery);
+        return redirect()->action('GalleryController@show', $gallery);
     }
 
     /**
@@ -105,6 +101,12 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        $this->authorize('delete', $image);
+
+        $gallery = $image->gallery;
+
+        $image->delete();
+
+        return redirect()->action('GalleryController@show', $gallery);
     }
 }

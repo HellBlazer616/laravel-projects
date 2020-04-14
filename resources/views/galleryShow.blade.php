@@ -9,7 +9,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -54,7 +53,7 @@
             </div>
             @can('delete', $image)
             <div class="flex delete">
-                <form action="/gallery/" method="post" class="form__delete">
+                <form action={{'/picture/' . $image->id}} method="post" class="form__delete">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger">Delete Image</button>

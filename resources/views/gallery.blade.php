@@ -9,7 +9,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -62,6 +61,10 @@
                     @csrf
                     <button type="submit" class="btn btn-danger">Delete Gallery</button>
                 </form>
+                @endcan
+                @can('update', $gallery)
+                <a href={{"gallery/" . $gallery->id . "/edit"}} class="btn btn-info">Edit
+                    Gallery</a>
                 @endcan
             </div>
 

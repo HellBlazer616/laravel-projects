@@ -77,7 +77,7 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        return \view('galleryEdit')->with('gallery', $gallery);
     }
 
     /**
@@ -89,7 +89,22 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
-        //
+        $this->authorize('update', $gallery);
+
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'cover' => 'required|mimes:jpeg,jpg,png|max:2000',
+        ]);
+        $galleryCoverPath = $request->file('cover')->store('galleryCover');
+
+        $gallery->update([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'cover' => $galleryCoverPath,
+        ]);
+
+        return redirect()->action('GalleryController@index');
     }
 
     /**
@@ -100,6 +115,8 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
+        $this->authorize('delete', $gallery);
+
         $gallery->delete();
 
         return \redirect('/gallery')->with('statusDelete', $gallery->title . ' has been deleted');
